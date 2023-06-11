@@ -8,14 +8,13 @@ import 'package:virtual_store/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final int days = 30;
-
-  final String name = "Codepur";
 
   @override
   void initState() {
@@ -24,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJson);
@@ -47,9 +46,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 CatalogHeader(),
                 if (CatalogModel.item.isNotEmpty)
-                  CatalogList().py16().expand()
+                  const CatalogList().py16().expand()
                 else
-                  CircularProgressIndicator().centered().expand(),
+                  const CircularProgressIndicator().centered().expand(),
               ],
             ),
           ),
